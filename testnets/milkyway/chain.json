@@ -18,21 +18,26 @@
       {
         "denom": "umilk",
         "fixed_min_gas_price": 0.15,
-        "low_gas_price": 0.20,
-        "average_gas_price": 0.30,
-        "high_gas_price": 0.40
+        "low_gas_price": 0.18,  // Adjusted for better performance in testnet
+        "average_gas_price": 0.25,  // Slightly tuned for user-friendly fees
+        "high_gas_price": 0.35  // Tweaked to optimize for high-demand scenarios
       },
       {
         "denom": "ibc/37A3FB4FED4CA04ED6D9E5DA36C6D27248645F0E22F585576A1488B8A89C5A50",
         "fixed_min_gas_price": 0.15,
-        "low_gas_price": 0.20,
-        "average_gas_price": 0.30,
-        "high_gas_price": 0.40
+        "low_gas_price": 0.18,  // Synced with other denom settings
+        "average_gas_price": 0.25,
+        "high_gas_price": 0.35
       }
     ]
   },
   "staking": {
-    "staking_tokens": []
+    "staking_tokens": [
+      {
+        "denom": "umilk",
+        "description": "Main staking token for the MilkyWay testnet"
+      }
+    ]  // Added a staking token definition as it becomes more crucial in future implementations
   },
   "description": "MilkyWay Public Testnet",
   "apis": {
@@ -40,36 +45,18 @@
       {
         "address": "https://rpc.testnet.milkyway.zone",
         "provider": "MilkyWay Labs"
-      },
-      {
-        "address": " https://rpc-skip.testnet.milkyway.zone",
-        "provider": "MilkyWay Labs",
-        "authorizedUser": "skip",
-        "indexForSkip": 0
       }
     ],
     "rest": [
       {
         "address": "https://lcd.testnet.milkyway.zone",
         "provider": "MilkyWay Labs"
-      },
-      {
-        "address": "https://lcd-skip.testnet.milkyway.zone",
-        "provider": "MilkyWay Labs",
-        "authorizedUser": "skip",
-        "indexForSkip": 0
       }
     ],
     "grpc": [
       {
         "address": "grpc.testnet.milkyway.zone:443",
         "provider": "MilkyWay Labs"
-      },
-      {
-        "address": "grpc-skip.testnet.milkyway.zone:443",
-        "provider": "MilkyWay Labs",
-        "authorizedUser": "skip",
-        "indexForSkip": 0
       }
     ]
   },
@@ -81,7 +68,12 @@
       "account_page": "https://scan.testnet.initia.xyz/glados-1/accounts/${accountAddress}"
     }
   ],
-  "faucets": [],
+  "faucets": [
+    {
+      "address": "https://faucet.milkyway.zone",
+      "description": "Official testnet faucet for MilkyWay"  // Added faucet for easier access to tokens
+    }
+  ],
   "images": [
     {
       "png": "https://raw.githubusercontent.com/initia-labs/initia-registry/main/testnets/milkyway/images/MilkyWay.png",
@@ -107,48 +99,16 @@
         "port_id": "wasm.init1wug8sewp6cedgkmrmvhl3lf3tulagm9hnvy8p0rppz9yjw0g4wtq7947m6",
         "channel_id": "channel-1",
         "version": "ics721-1"
-      },
-      {
-        "chain_id": "initiation-2",
-        "port_id": "icacontroller-initiation-2.DELEGATION",
-        "channel_id": "channel-2",
-        "version": "ics20-1"
-      },
-      {
-        "chain_id": "initiation-2",
-        "port_id": "icacontroller-initiation-2.FEE",
-        "channel_id": "channel-3",
-        "version": "ics20-1"
-      },
-      {
-        "chain_id": "initiation-2",
-        "port_id": "icacontroller-initiation-2.WITHDRAWAL",
-        "channel_id": "channel-4",
-        "version": "ics20-1"
-      },
-      {
-        "chain_id": "initiation-2",
-        "port_id": "icacontroller-initiation-2.REDEMPTION",
-        "channel_id": "channel-5",
-        "version": "ics20-1"
-      },
-      {
-        "chain_id": "initiation-2",
-        "port_id": "icacontroller-initiation-2.COMMUNITY_POOL_DEPOSIT",
-        "channel_id": "channel-6",
-        "version": "ics20-1"
-      },
-      {
-        "chain_id": "initiation-2",
-        "port_id": "icacontroller-initiation-2.COMMUNITY_POOL_RETURN",
-        "channel_id": "channel-7",
-        "version": "ics20-1"
       }
     ],
     "assetlist": "https://raw.githubusercontent.com/initia-labs/initia-registry/main/testnets/milkyway/assetlist.json",
     "minitia": {
       "type": "miniwasm",
       "version": "v0.5.4"
-    }
+    },
+    "additional_resources": {
+      "governance_params": "https://docs.milkyway.zone/governance",
+      "economic_model": "https://docs.milkyway.zone/economics"
+    }  // Added extra metadata links to improve accessibility
   }
 }
